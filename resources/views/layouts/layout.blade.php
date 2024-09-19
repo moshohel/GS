@@ -25,31 +25,30 @@
         <!-- START HEADER -->
         @include('partials.header')
         <!-- END HEADER -->
+        <div class="container-fluid page-body-wrapper">
+            {{-- @include('partials.messages') --}}
 
-        {{-- @include('partials.messages') --}}
+            <!-- START Slider -->
+            @include('partials.sidebar')
+            <!-- END Slider -->
 
+            {{--
+            <!-- START Slider -->
+            @include('partials.slider')
+            <!-- END Slider --> --}}
 
-        <!-- START Slider -->
-        @include('partials.sidebar')
-        <!-- END Slider -->
+            <!-- Main Content -->
+            @yield('content')
+            <!-- End Main Content -->
+            <!-- Page Content -->
+            {{-- <main>
+                {{ $slot }}
+            </main> --}}
 
-        {{--
-        <!-- START Slider -->
-        @include('partials.slider')
-        <!-- END Slider --> --}}
-
-        <!-- Main Content -->
-        @yield('content')
-        <!-- End Main Content -->
-        <!-- Page Content -->
-        {{-- <main>
-            {{ $slot }}
-        </main> --}}
-
-        <!-- START FOOTER -->
-        {{-- @include('partials.footer') --}}
-        <!-- END FOOTER -->
-
+            <!-- START FOOTER -->
+            {{-- @include('partials.footer') --}}
+            <!-- END FOOTER -->
+        </div>
     </div>
 
     {{-- Scripts --}}

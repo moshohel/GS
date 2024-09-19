@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-
+use App\http\Controllers\BuildingController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -25,9 +25,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__ . '/auth.php';
 
-
-Route::get('/test', function () {
-    return view('test');
+Route::prefix('buildings')->group(function () {
+    Route::get('/index', [BuildingController::class, 'index'])->name('buildings.index');
+    Route::get('/create', [BuildingController::class, 'create'])->name('buildings.create');
 });
+
+
+require __DIR__ . '/auth.php';

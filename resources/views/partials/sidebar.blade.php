@@ -120,7 +120,9 @@
             </div>
             <ul class="chat-list">
                 <li class="list active">
-                    <div class="profile"><img src="images/faces/face1.jpg" alt="image"><span class="online"></span>
+                    <div class="profile"><img src="{{ URL::asset('assets/images/faces/face1.jpg')}}" alt="image"><span
+                            class="online"></span>
+
                     </div>
                     <div class="info">
                         <p>Thomas Douglas</p>
@@ -129,7 +131,8 @@
                     <small class="text-muted my-auto">19 min</small>
                 </li>
                 <li class="list">
-                    <div class="profile"><img src="images/faces/face2.jpg" alt="image"><span class="offline"></span>
+                    <div class="profile"><img src="{{ URL::asset('assets/images/faces/face2.jpg') }}" alt="image"><span
+                            class="offline"></span>
                     </div>
                     <div class="info">
                         <div class="wrapper d-flex">
@@ -141,7 +144,8 @@
                     <small class="text-muted my-auto">23 min</small>
                 </li>
                 <li class="list">
-                    <div class="profile"><img src="images/faces/face3.jpg" alt="image"><span class="online"></span>
+                    <div class="profile"><img src="{{ URL::asset('assets/images/faces/face3.jpg') }}" alt="image"><span
+                            class="online"></span>
                     </div>
                     <div class="info">
                         <p>Daniel Russell</p>
@@ -150,7 +154,8 @@
                     <small class="text-muted my-auto">14 min</small>
                 </li>
                 <li class="list">
-                    <div class="profile"><img src="images/faces/face4.jpg" alt="image"><span class="offline"></span>
+                    <div class="profile"><img src="{{ URL::asset('assets/images/faces/face4.jpg') }}" alt="image"><span
+                            class="offline"></span>
                     </div>
                     <div class="info">
                         <p>James Richardson</p>
@@ -159,7 +164,8 @@
                     <small class="text-muted my-auto">2 min</small>
                 </li>
                 <li class="list">
-                    <div class="profile"><img src="images/faces/face5.jpg" alt="image"><span class="online"></span>
+                    <div class="profile"><img src="{{ URL::asset('assets/images/faces/face5.jpg') }}" alt="image"><span
+                            class="online"></span>
                     </div>
                     <div class="info">
                         <p>Madeline Kennedy</p>
@@ -168,7 +174,8 @@
                     <small class="text-muted my-auto">5 min</small>
                 </li>
                 <li class="list">
-                    <div class="profile"><img src="images/faces/face6.jpg" alt="image"><span class="online"></span>
+                    <div class="profile"><img src="{{ URL::asset('assets/images/faces/face6.jpg') }}" alt="image"><span
+                            class="online"></span>
                     </div>
                     <div class="info">
                         <p>Sarah Graves</p>
@@ -199,97 +206,97 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Create Building</a>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('buildings.create') }}">Create Building</a>
                     </li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Buttons</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dropdowns.html">Dropdowns</a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/ui-features/typography.html">Typography</a>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('buildings.index') }}">All Building</a>
                     </li>
-                </ul>
-            </div>
+
         </li>
-        {{-- <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
-                aria-controls="form-elements">
-                <i class="icon-columns menu-icon"></i>
-                <span class="menu-title">Form elements</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="form-elements">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a>
-                    </li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-                <i class="icon-bar-graph menu-icon"></i>
-                <span class="menu-title">Charts</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="charts">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
-                <i class="icon-grid-2 menu-icon"></i>
-                <span class="menu-title">Tables</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="tables">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
-                <i class="icon-contract menu-icon"></i>
-                <span class="menu-title">Icons</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="icons">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
-                </ul>
-            </div>
-        </li> --}}
-        <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
-                <i class="icon-head menu-icon"></i>
-                <span class="menu-title">Users</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="auth">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
-                </ul>
-            </div>
-        </li>
-        {{-- <li class="nav-item">
-            <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
-                <i class="icon-ban menu-icon"></i>
-                <span class="menu-title">Error pages</span>
-                <i class="menu-arrow"></i>
-            </a>
-            <div class="collapse" id="error">
-                <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
-                    <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
-                </ul>
-            </div>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link" href="pages/documentation/documentation.html">
-                <i class="icon-paper menu-icon"></i>
-                <span class="menu-title">Documentation</span>
-            </a>
-        </li> --}}
+    </ul>
+    </div>
+    </li>
+    {{-- <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
+            aria-controls="form-elements">
+            <i class="icon-columns menu-icon"></i>
+            <span class="menu-title">Form elements</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="form-elements">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a>
+                </li>
+            </ul>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+            <i class="icon-bar-graph menu-icon"></i>
+            <span class="menu-title">Charts</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="charts">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
+            </ul>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#tables" aria-expanded="false" aria-controls="tables">
+            <i class="icon-grid-2 menu-icon"></i>
+            <span class="menu-title">Tables</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="tables">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/tables/basic-table.html">Basic table</a></li>
+            </ul>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#icons" aria-expanded="false" aria-controls="icons">
+            <i class="icon-contract menu-icon"></i>
+            <span class="menu-title">Icons</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="icons">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
+            </ul>
+        </div>
+    </li> --}}
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+            <i class="icon-head menu-icon"></i>
+            <span class="menu-title">Users</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="auth">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/login.html"> Login </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/register.html"> Register </a></li>
+            </ul>
+        </div>
+    </li>
+    {{-- <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
+            <i class="icon-ban menu-icon"></i>
+            <span class="menu-title">Error pages</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="error">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-404.html"> 404 </a></li>
+                <li class="nav-item"> <a class="nav-link" href="pages/samples/error-500.html"> 500 </a></li>
+            </ul>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="pages/documentation/documentation.html">
+            <i class="icon-paper menu-icon"></i>
+            <span class="menu-title">Documentation</span>
+        </a>
+    </li> --}}
     </ul>
 </nav>
 <!-- partial -->

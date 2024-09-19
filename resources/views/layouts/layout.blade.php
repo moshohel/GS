@@ -15,6 +15,10 @@
     <!-- CSS -->
     @include('partials.styles')
 
+    <!-- Each Page own CSS -->
+    @yield('css')
+
+    <!-- End CSS -->
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>

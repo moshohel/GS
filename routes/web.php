@@ -13,7 +13,7 @@ Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login'
 
 Route::get('/home', function () {
     return view('home');
-});
+})->middleware(['auth', 'verified'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -25,6 +25,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::get('/logout', function () {
+    Auth::logout();
+    return redirect()->route('login');
+})->name('logout');
 
 Route::prefix('buildings')->group(function () {
     Route::get('/index', [BuildingController::class, 'index'])->name('buildings.index');

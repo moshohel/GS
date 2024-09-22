@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\http\Controllers\BuildingController;
+use App\http\Controllers\FloorController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -30,10 +31,21 @@ Route::get('/logout', function () {
     return redirect()->route('login');
 })->name('logout');
 
-Route::prefix('buildings')->group(function () {
-    Route::get('/index', [BuildingController::class, 'index'])->name('buildings.index');
-    Route::get('/create', [BuildingController::class, 'create'])->name('buildings.create');
+
+Route::middleware(['auth'])->group(function () {
+    
+    Route::prefix('buildings')->group(function () {
+        Route::get('/index', [BuildingController::class, 'index'])->name('buildings.index');
+        Route::get('/create', [BuildingController::class, 'create'])->name('buildings.create');
+    });
+
+    Route::prefix('floors')->group(function () {
+        Route::get('/index', [FloorController::class, 'index'])->name('floors.index');
+        Route::get('/create', [FloorController::class, 'create'])->name('floors.create');
+    });
+    
 });
+
 
 
 require __DIR__ . '/auth.php';

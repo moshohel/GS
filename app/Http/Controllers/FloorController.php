@@ -2,18 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Building;
-use App\Http\Requests\StoreBuildingRequest;
-use App\Http\Requests\UpdateBuildingRequest;
+use Illuminate\Http\Request;
 
-class BuildingController extends Controller
+class FloorController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('pages.building.index');
+        return view('pages.floor.index');
     }
 
     /**
@@ -21,13 +19,13 @@ class BuildingController extends Controller
      */
     public function create()
     {
-        return view('pages.building.create');
+        return view('pages.floor.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreBuildingRequest $request)
+    public function store(Request $request)
     {
         //
     }
@@ -35,7 +33,7 @@ class BuildingController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Building $building)
+    public function show(string $id)
     {
         //
     }
@@ -43,7 +41,7 @@ class BuildingController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Building $building)
+    public function edit(string $id)
     {
         //
     }
@@ -51,7 +49,7 @@ class BuildingController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBuildingRequest $request, Building $building)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -59,7 +57,7 @@ class BuildingController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Building $building)
+    public function destroy(string $id)
     {
         //
     }

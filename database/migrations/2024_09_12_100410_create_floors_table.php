@@ -16,8 +16,8 @@ return new class extends Migration
             $table->integer('floor_number');
             $table->enum('floor_type', ['Commercial', 'Residential']);
             $table->integer('number_of_flats')->default(1);
-            $table->index('building_id');
             $table->enum('status', ['active', 'inactive', 'under_construction']);
+            $table->index('building_id');
             $table->foreign('building_id')->references('id')->on('buildings')->onDelete('cascade');
             $table->timestamps();
         });

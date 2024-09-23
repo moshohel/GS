@@ -12,7 +12,7 @@ class FlatController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.flat.index');
     }
 
     /**
@@ -20,7 +20,7 @@ class FlatController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.flat.create');
     }
 
     /**

@@ -14,3 +14,15 @@
     border-radius: 2px !important;
     transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
 }
+
+select.form-control {
+    padding: .4375rem .75rem !important;
+    border: 0 !important;
+    outline: 1px solid #CED4DA !important;
+    color: #c9c8c8 !important;
+}
+
+.content-wrapper {
+    background: #f1f1f1 !important;
+
+}

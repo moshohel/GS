@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use App\http\Controllers\BuildingController;
 use App\http\Controllers\FloorController;
+use App\http\Controllers\FlatController;
 
 Route::get('/', function () {
     return view('auth.login');
@@ -42,6 +43,11 @@ Route::middleware(['auth'])->group(function () {
     Route::prefix('floors')->group(function () {
         Route::get('/index', [FloorController::class, 'index'])->name('floors.index');
         Route::get('/create', [FloorController::class, 'create'])->name('floors.create');
+    });
+
+    Route::prefix('flats')->group(function () {
+        Route::get('/index', [FlatController::class, 'index'])->name('flats.index');
+        Route::get('/create', [FlatController::class, 'create'])->name('flats.create');
     });
     
 });

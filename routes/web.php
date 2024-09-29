@@ -11,15 +11,19 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
+Route::get('/error-404', function () {
+    return view('pages.404')->name('errorPage');
+});
+
 Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login');
 
 Route::get('/home', function () {
     return view('home');
-})->middleware(['auth', 'verified'])->name('home');
+})->middleware(['Manager', 'verified'])->name('home');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['Manager', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -33,7 +37,7 @@ Route::get('/logout', function () {
 })->name('logout');
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['Manager'])->group(function () {
     
     Route::prefix('buildings')->group(function () {
         Route::get('/index', [BuildingController::class, 'index'])->name('buildings.index');
@@ -51,7 +55,6 @@ Route::middleware(['auth'])->group(function () {
     });
     
 });
-
 
 
 require __DIR__ . '/auth.php';

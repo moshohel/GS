@@ -13,6 +13,8 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
             'Manager' => \App\Http\Middleware\Manager::class,
+            'Caretaker' => \App\Http\Middleware\Caretaker::class,
+            'Admin' => \App\Http\Middleware\Admin::class,
         ]);
         
     })

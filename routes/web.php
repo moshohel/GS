@@ -12,8 +12,8 @@ Route::get('/', function () {
 });
 
 Route::get('/error-404', function () {
-    return view('pages.404')->name('errorPage');
-});
+    return view('pages.404');
+})->name('errorPage');
 
 Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login');
 
@@ -23,7 +23,7 @@ Route::get('/home', function () {
 
 Route::get('/dashboard', function () {
     return view('dashboard');
-})->middleware(['Manager', 'verified'])->name('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

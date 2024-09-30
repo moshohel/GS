@@ -16,16 +16,15 @@ class Manager
     public function handle(Request $request, Closure $next): Response
     {
 
-        $user = auth()->user();
-
-        if(!$user) return redirect()->route('login');
-
-        if ($user->user_type !== 'MANAGER') {
-            return redirect('error-404');
+        
+        if(Auth()->user()->user_type == 'MANAGER'){ // admin = 1 superAdmin = 2
+            return $next($request);
+        }else{
+            return redirect()->route('login')->with('error', 'You do not have permission to access this page !');
         }
 
         // return response()->json('You Need to be super Admin');
 
-        return $next($request);
+        // return $next($request);
     }
 }

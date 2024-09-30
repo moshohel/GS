@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class Caretaker
+class Admin
 {
     /**
      * Handle an incoming request.
@@ -15,7 +15,7 @@ class Caretaker
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth()->user()->user_type == 'CARETAKER'){ // admin = 1 superAdmin = 2
+        if(Auth()->user()->user_type == 'ADMIN'){ 
             return $next($request);
         }else{
             return redirect()->route('login')->with('error', 'You do not have permission to access this page !');

@@ -8,6 +8,16 @@ use App\Http\Requests\UpdateBuildingRequest;
 
 class BuildingController extends Controller
 {
+
+    public static function middleware(): array
+    {
+        return [
+            'auth',
+            new Middleware('log', only: ['index']),
+            new Middleware('subscribed', except: ['store']),
+        ];
+    }
+    
     /**
      * Display a listing of the resource.
      */
@@ -21,6 +31,7 @@ class BuildingController extends Controller
      */
     public function create()
     {
+        session()->flash('success', 'A New confirmation email has sent to you.. Please check and confirm your email');
         return view('pages.building.create');
     }
 

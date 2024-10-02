@@ -8,6 +8,7 @@ use App\http\Controllers\FloorController;
 use App\http\Controllers\FlatController;
 
 Route::get('/', function () {
+    dd('sdfkjsdfjsdfj');
     return view('auth.login');
 });
 
@@ -37,24 +38,32 @@ Route::get('/logout', function () {
 })->name('logout');
 
 
-Route::middleware(['Manager'])->group(function () {
+Route::middleware(['auth'])->group(function () {
+    Route::middleware(['Manager'])->group(function () {
+        // dd('-----------------');
+        Route::prefix('buildings')->group(function () {
+            Route::get('/index', [BuildingController::class, 'index'])->name('buildings.index');
+            Route::get('/create', [BuildingController::class, 'create'])->name('buildings.create');
+            
+            // Route::get('/create', function () {
+                
+            //     return view('pages.building.create');
+            // })->middleware(['auth', 'verified'])->name('buildings.create');
+        });
     
-    Route::prefix('buildings')->group(function () {
-        Route::get('/index', [BuildingController::class, 'index'])->name('buildings.index');
-        Route::get('/create', [BuildingController::class, 'create'])->name('buildings.create');
-    });
-
-    Route::prefix('floors')->group(function () {
-        Route::get('/index', [FloorController::class, 'index'])->name('floors.index');
-        Route::get('/create', [FloorController::class, 'create'])->name('floors.create');
-    });
-
-    Route::prefix('flats')->group(function () {
-        Route::get('/index', [FlatController::class, 'index'])->name('flats.index');
-        Route::get('/create', [FlatController::class, 'create'])->name('flats.create');
-    });
+        Route::prefix('floors')->group(function () {
+            Route::get('/index', [FloorController::class, 'index'])->name('floors.index');
+            Route::get('/create', [FloorController::class, 'create'])->name('floors.create');
+        });
     
+        Route::prefix('flats')->group(function () {
+            Route::get('/index', [FlatController::class, 'index'])->name('flats.index');
+            Route::get('/create', [FlatController::class, 'create'])->name('flats.create');
+        });
+        
+    });
 });
+
 
 
 require __DIR__ . '/auth.php';

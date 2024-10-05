@@ -1,0 +1,28 @@
+.navbarImage {
+    height: 60px !important;
+}
+
+.form-control {
+    padding: 0.875rem 1.375rem !important;
+    font-size: 0.875rem !important;
+    font-weight: 400 !important;
+    line-height: 1 !important;
+    color: #495057 !important;
+    background-color: #ffffff !important;
+    background-clip: padding-box !important;
+    border: 1px solid #ced4da !important;
+    border-radius: 2px !important;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out !important;
+}
+
+select.form-control {
+    padding: .4375rem .75rem !important;
+    border: 0 !important;
+    outline: 1px solid #CED4DA !important;
+    color: #c9c8c8 !important;
+}
+
+.content-wrapper {
+    background: #f1f1f1 !important;
+
+}

@@ -1,0 +1,38 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+use Ramsey\Uuid\Type\Integer;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::create('buildings', function (Blueprint $table) {
+            $table->id();
+            $table->string('building_name');
+            $table->integer('number_of_floor');
+            $table->string('road')->nullable();
+            $table->string('block')->nullable();
+            $table->string('area')->nullable();
+            $table->string('type')->nullable();
+            $table->string('holding')->nullable();
+            $table->integer('manager_id')->unsigned()->foreign()->index()->references('id')->on('users');
+            $table->string('address')->nullable();
+            $table->integer('spcial_rate')->nullable();
+            $table->timestamps();
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('buildings');
+    }
+};

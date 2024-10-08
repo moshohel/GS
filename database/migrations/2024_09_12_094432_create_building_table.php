@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('buildings', function (Blueprint $table) {
             $table->id();
-            $table->string('building_name');
+            $table->string('name');
             $table->integer('number_of_floor');
             $table->string('road')->nullable();
             $table->string('block')->nullable();

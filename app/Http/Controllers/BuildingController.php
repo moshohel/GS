@@ -5,15 +5,34 @@ namespace App\Http\Controllers;
 use App\Models\Building;
 use App\Http\Requests\StoreBuildingRequest;
 use App\Http\Requests\UpdateBuildingRequest;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
+use Session;
+use DataTables;
+
 
 class BuildingController extends Controller
 {
+
+
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('pages.building.index');
+
+        if ($request->expectsJson()) {
+            $data = Building::latest();
+            return Datatables::eloquent($data)
+                ->addIndexColumn()
+                ->addColumn('action', function (Building $item) {
+                    return view('actions')->withId($item->id)->withModel('buildings');
+                })
+                ->rawColumns(['action'])
+                ->toJson();
+        }
+        $data = ['title' => 'All Buildings'];
+        return view('pages.building.index')->with($data);
     }
 
     /**
@@ -29,7 +48,15 @@ class BuildingController extends Controller
      */
     public function store(StoreBuildingRequest $request)
     {
-        //
+
+        $data = $request->all();
+
+        $building = Building::create($data);
+
+        return redirect()->back()->with('success', 'Building created successfully!');
+
+
+        //return to_route('buildings.show', ['building' => $building->id]);
     }
 
     /**
@@ -37,7 +64,6 @@ class BuildingController extends Controller
      */
     public function show(Building $building)
     {
-        //
     }
 
     /**
@@ -45,7 +71,7 @@ class BuildingController extends Controller
      */
     public function edit(Building $building)
     {
-        //
+
     }
 
     /**

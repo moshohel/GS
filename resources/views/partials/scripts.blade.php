@@ -19,3 +19,7 @@
 <script src={{asset("assets/js/dashboard.js")}}></script>
 <script src={{asset("assets/js/Chart.roundedBarCharts.js")}}></script>
 <!-- End custom js for this page-->
+<script src="{{asset('assets/DataTables/DataTables-1.13.4/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/DataTables/FixedHeader-3.3.2/js/fixedHeader.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/DataTables/Responsive-2.4.1/js/responsive.dataTables.min.js')}}"></script>
+<script src="{{asset('assets/DataTables/DateTime-1.4.1/js/dataTables.dateTime.min.js')}}"></script>

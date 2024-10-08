@@ -16,3 +16,7 @@
 <link rel="stylesheet" href={{ asset("assets/vendors/ti-icons/css/themify-icons.css") }}>
 <link rel="stylesheet" href={{ asset("assets/vendors/css/vendor.bundle.base.css") }}>
 <!-- endinject -->
+
+<link href="{{asset('assets/DataTables/DataTables-1.13.4/css/jquery.dataTables.min.css')}}" rel="stylesheet"/>
+<link href="{{asset('assets/DataTables/FixedHeader-3.3.2/css/fixedHeader.dataTables.min.css')}}" rel="stylesheet"/>
+<link href="{{asset('assets/DataTables/Responsive-2.4.1/css/responsive.dataTables.min.css')}}" rel="stylesheet"/>

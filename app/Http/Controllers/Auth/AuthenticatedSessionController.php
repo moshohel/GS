@@ -8,7 +8,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
-
+use App\http\Controllers\BuildingController;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -26,7 +26,7 @@ class AuthenticatedSessionController extends Controller
     public function store(LoginRequest $request): RedirectResponse
     {
         $request->authenticate();
-        
+
         $request->session()->regenerate();
 
         return redirect()->intended(route('home', absolute: false));
@@ -49,9 +49,9 @@ class AuthenticatedSessionController extends Controller
 
     public function customLogin(LoginRequest $request): RedirectResponse
     {
-        
+
         $request->authenticate();
-        
+
         $request->session()->regenerate();
 
         $input = $request->all();
@@ -64,24 +64,31 @@ class AuthenticatedSessionController extends Controller
         //     'email' => 'required|email',
         //     'password' => 'required',
         // ]);
-        
+
         // check if the given user exists in db
         if(Auth::attempt(['email'=> $input['email'], 'password'=> $input['password']])){
             // check the user role
+            // echo(Auth::user()->user_type);
+            // dd(Auth::user()->user_type);
             if(Auth::user()->user_type == 'CARETAKER'){
                 return redirect()->route('dashboard');
             }
             elseif (Auth::user()->user_type == 'MANAGER') {
+                // dd(Auth::user()->user_type);
                 return redirect()->route('home');
             }
             elseif (Auth::user()->user_type == 'ADMIN') {
                 // dd('Admin------------------------');
                 return redirect()->route('buildings.index');
             }
+            elseif (Auth::user()->user_type == '') {
+                // dd('Admin------------------------');
+                return redirect()->route('home');
+            }
         }
         else{
             return redirect()->route('login')->with('error', "Wrong credentials");
         }
-        
+
     }
 }

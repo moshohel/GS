@@ -14,15 +14,14 @@ return new class extends Migration
     {
         Schema::create('buildings', function (Blueprint $table) {
             $table->id();
-            $table->string('building_name');
+            $table->string('name');
             $table->integer('number_of_floor');
             $table->string('road')->nullable();
             $table->string('block')->nullable();
             $table->string('area')->nullable();
             $table->string('type')->nullable();
             $table->string('holding')->nullable();
-            $table->index('manager_id');
-            $table->foreign('manager_id')->references('id')->on('users');
+            $table->integer('manager_id')->unsigned()->foreign()->index()->references('id')->on('users');
             $table->string('address')->nullable();
             $table->integer('spcial_rate')->nullable();
             $table->timestamps();
@@ -34,6 +33,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('building');
+        Schema::dropIfExists('buildings');
     }
 };

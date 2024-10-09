@@ -13,9 +13,8 @@ return new class extends Migration
     {
         Schema::create('flats', function (Blueprint $table) {
             $table->id();
-            $table->string('flat_name');
-            $table->index('floor_id');
-            $table->foreign('floor_id')->references('id')->on('floors')->onDelete('cascade');
+            $table->string('name');
+            $table->integer('floor_id')->index()->unsigned()->foreign()->references('id')->on('floors')->onDelete('cascade');
             $table->string('gs_member_id')->nullable();
             $table->timestamps();
         });

@@ -8,10 +8,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 
-Route::get('/', function () {
-    dd('sdfkjsdfjsdfj');
-    return view('auth.login');
-});
 
 Route::get('/error-404', function () {
     return view('pages.404');
@@ -41,6 +37,7 @@ Route::get('/logout', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['Admin'])->group(function () {
+        Route::get('buildings/show/{id}', [ BuildingController::class, 'show']);
         Route::resource('buildings', BuildingController::class);
         Route::resource('floors', FloorController::class);
         Route::resource('flats', FlatController::class);

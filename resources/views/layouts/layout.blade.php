@@ -58,6 +58,8 @@
     {{-- Scripts --}}
     @include('partials.scripts')
 
+    @stack('scripts')
+
     @yield('scripts')
 
 </body>

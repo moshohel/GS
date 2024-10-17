@@ -7,7 +7,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
-
+use App\Http\Controllers\AdminController;
 
 Route::get('/error-404', function () {
     return view('pages.404');
@@ -44,6 +44,10 @@ Route::middleware(['auth'])->group(function () {
 
         Route::get('buildingscreate', [\App\Livewire\Building\Create::class])->name('buildingscreate');
 
+        Route::prefix('admin')->group(function () {
+            // Route::get('/', 'AdminController@index')->name('admin.dashboard');
+            Route::get('/', [ AdminController::class, 'index'])->name('admin.dashboard');
+        });
     });
 });
 

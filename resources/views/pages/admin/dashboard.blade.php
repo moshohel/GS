@@ -18,7 +18,7 @@
                     <div class="card-body">
                         <h4 class="card-title">Zone Based Bill Collection</h4>
                         <p class="card-description">
-                            Add class <code>.table</code>
+                            Zone Based <code> Bill</code>
                         </p>
                         <div class="table-responsive">
                             <table class="table table-hover ">
@@ -80,7 +80,7 @@
             <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Pie chart</h4>
+                        <h4 class="card-title">Collected and Due Together</h4>
                         <canvas id="horizontal-stacked-bar-chart"></canvas>
                     </div>
                 </div>
@@ -107,17 +107,17 @@
     new Chart(document.getElementById("pie-chart"), {
     type: 'pie',
     data: {
-      labels: ["Africa", "Asia", "Europe", "Latin America", "North America"],
+      labels: ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6"],
       datasets: [{
-        label: "Population (millions)",
-        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850"],
-        data: [2478,5267,734,784,433]
+        label: "COLLECTED",
+        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#283763"],
+        data: [2478,5267,734,784,433,2555]
       }]
     },
     options: {
       title: {
         display: true,
-        text: 'Predicted world population (millions) in 2050'
+        text: 'Bill Collected Based on Zones of Gulshan Socity'
       }
     }
 });
@@ -192,19 +192,15 @@ var ctx = document.getElementById("horizontal-stacked-bar-chart");
 var myChart = new Chart(ctx, {
     type: 'horizontalBar',
     data: {
-        labels: ["2014", "2013", "2012", "2011"],
+        labels: ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6"],
         
         datasets: [{
-            data: [727, 589, 537, 543, 574],
-            backgroundColor: "rgba(63,103,126,1)",
+            data: [121727, 131589, 151537, 121543, 131574, 141445],
+            backgroundColor: "rgba(0,204,0,1)",
             hoverBackgroundColor: "rgba(50,90,100,1)"
         },{
-            data: [238, 553, 746, 884, 903],
-            backgroundColor: "rgba(163,103,126,1)",
-            hoverBackgroundColor: "rgba(140,85,100,1)"
-        },{
-            data: [1238, 553, 746, 884, 903],
-            backgroundColor: "rgba(63,203,226,1)",
+            data: [22238, 44553, 32746, 23884, 21903, 23865],
+            backgroundColor: "rgba(204,0,0,1)",
             hoverBackgroundColor: "rgba(46,185,235,1)"
         }]
     },

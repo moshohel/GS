@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\BillController;
 
 Route::get('/error-404', function () {
     return view('pages.404');
@@ -37,7 +38,7 @@ Route::get('/logout', function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::middleware(['Admin'])->group(function () {
-        Route::get('buildings/show/{id}', [ BuildingController::class, 'show']);
+        Route::get('buildings/show/{id}', [BuildingController::class, 'show']);
         Route::resource('buildings', BuildingController::class);
         Route::resource('floors', FloorController::class);
         Route::resource('flats', FlatController::class);
@@ -46,11 +47,11 @@ Route::middleware(['auth'])->group(function () {
 
         Route::prefix('admin')->group(function () {
             // Route::get('/', 'AdminController@index')->name('admin.dashboard');
-            Route::get('/', [ AdminController::class, 'index'])->name('admin.dashboard');
+            Route::get('/', [AdminController::class, 'index'])->name('admin.dashboard');
         });
     });
 });
 
-
+Route::get('bill', [BillController::class, 'showBillingForm']);
 
 require __DIR__ . '/auth.php';

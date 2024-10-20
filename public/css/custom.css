@@ -26,3 +26,11 @@ select.form-control {
     background: #f1f1f1 !important;
 
 }
+
+
+
+/* Custom style for highlighting paid months */
+.flatpickr-monthSelect-month.disabled {
+    background-color: #28a745 !important;
+    color: white !important;
+}

@@ -12,7 +12,25 @@ class BillController extends Controller
      */
     public function index()
     {
-        //
+        return view('pages.billing.payBill');
+    }
+
+    public function showBillingForm()
+    {
+        // Assume this is the array of months the user has paid for, in 'YYYY-MM' format
+        $paidMonths = ['2024-01', '2024-03', '2024-06']; // Example data
+
+        // Pass the paid months to the view
+        return view('pages.billing.payBill', compact('paidMonths'));
+    }
+
+    public function processPayment(Request $request)
+    {
+        $selectedMonth = $request->input('month');
+
+        // Process payment logic here
+
+        return back()->with('success', 'Payment initiated for ' . $selectedMonth);
     }
 
     /**

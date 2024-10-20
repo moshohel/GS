@@ -13,8 +13,10 @@ return new class extends Migration
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
-            $table->integer('flat_id');
-            // $table->index('flat_id');
+            $table->integer('building_id')->unsigned()->foreign()->index()->references('id')->on('buildings');
+            $table->integer('bill_given_by')->unsigned()->foreign()->index()->references('id')->on('users');
+            $table->date('date');
+            $table->time('time');
             $table->timestamps();
         });
     }

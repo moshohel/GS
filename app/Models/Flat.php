@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Flat extends Model
 {
     use HasFactory;
+
+    public function floor(): BelongsTo
+    {
+        return $this->belongsTo(Floor::class);
+    }
 }

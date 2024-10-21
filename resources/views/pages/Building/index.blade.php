@@ -17,7 +17,6 @@
                                                 <th>SL</th>
                                                 <th>Name</th>
                                                 <th>Road</th>
-                                                <th>Block</th>
                                                 <th>Area</th>
                                                 <th>Address</th>
                                                 <th>Action</th>
@@ -52,7 +51,6 @@
                     },
                     {data: 'name', name: 'name'},
                     {data: 'road', name: 'road'},
-                    {data: 'block', name: 'block'},
                     {data: 'area', name: 'area'},
                     {data: 'address', name: 'address'},
                     {data: 'action', name: 'action'},

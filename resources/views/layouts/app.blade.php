@@ -6,11 +6,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Gulshan Socity') }}</title>
+    <title>{{ config('app.name', 'Gulshan Society') }}</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet"/>
+
+    <!-- CSS -->
+    @include('partials.styles')
+
+    <link rel="stylesheet" href={{ asset("assets/vendors/select2/select2.min.css") }}>
+    <link rel="stylesheet" href={{ asset("assets/vendors/select2-bootstrap-theme/select2-bootstrap.min.css") }}>
+
+    <!-- Each Page own CSS -->
+    @yield('css')
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
@@ -20,26 +29,27 @@
 </head>
 
 <body class="font-sans antialiased">
+@livewireScripts
+<div class="bg-gray-100">
 
-    @livewireScripts
+    @include('partials.header')
+    <div class="container-fluid page-body-wrapper">
 
-    <div class="min-h-screen bg-gray-100">
-        @include('layouts.navigation')
+        @include('partials.sidebar')
 
-        <!-- Page Heading -->
-        @isset($header)
-        <header class="bg-white shadow">
-            <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                {{ $header }}
-            </div>
-        </header>
-        @endisset
 
-        <!-- Page Content -->
-        <main>
-            {{ $slot }}
-        </main>
+        {{ $slot }}
+
     </div>
+</div>
+{{-- Scripts --}}
+@include('partials.scripts')
+
+
+<script src={{asset("assets/vendors/select2/select2.min.js")}}></script>
+<script src={{asset("assets/vendors/typeahead.js/typeahead.bundle.min.js")}}></script>
+
+
 </body>
 
 </html>

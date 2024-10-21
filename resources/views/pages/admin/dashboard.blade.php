@@ -7,8 +7,8 @@
             <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">Pie chart</h4>
-                        <canvas id="pieChart"></canvas>
+                        <h4 class="card-title">Bill Collected</h4>
+                        <canvas id="pie-chart-collected"></canvas>
                     </div>
                 </div>
             </div>
@@ -88,8 +88,8 @@
             <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
                 <div class="card">
                     <div class="card-body">
-                        <h4 class="card-title">pie-chart</h4>
-                        <canvas id="pie-chart"></canvas>
+                        <h4 class="card-title">Due Bill</h4>
+                        <canvas id="pie-chart-due"></canvas>
                     </div>
                 </div>
             </div>
@@ -104,7 +104,27 @@
 <script src="{{ asset('assets/js/chart.js') }}"></script>
 
 <script>
-    new Chart(document.getElementById("pie-chart"), {
+    new Chart(document.getElementById("pie-chart-collected"), {
+    type: 'pie',
+    data: {
+      labels: ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6"],
+      datasets: [{
+        label: "COLLECTED",
+        backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#283763"],
+        data: [2478,5267,734,784,433,2555]
+      }]
+    },
+    options: {
+      title: {
+        display: true,
+        text: 'Bill Collected Based on Zones of Gulshan Socity'
+      }
+    }
+});
+</script>
+
+<script>
+    new Chart(document.getElementById("pie-chart-due"), {
     type: 'pie',
     data: {
       labels: ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6"],

@@ -17,13 +17,14 @@ return new class extends Migration
             $table->string('name');
             $table->integer('number_of_floor');
             $table->string('road')->nullable();
-            $table->string('block')->nullable();
             $table->string('area')->nullable();
             $table->string('type')->nullable();
             $table->string('holding')->nullable();
+            $table->integer('gs_authority_id')->unsigned()->foreign()->index()->references('id')->on('users');
             $table->integer('manager_id')->unsigned()->foreign()->index()->references('id')->on('users');
             $table->string('address')->nullable();
-            $table->integer('spcial_rate')->nullable();
+            $table->string('special_rate_radio')->nullable()->default('no');
+            $table->integer('special_rate')->nullable();
             $table->timestamps();
         });
     }

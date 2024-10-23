@@ -216,11 +216,37 @@
                     </li>
                     <li class="nav-item"> <a class="nav-link" href="{{ route('flats.create') }}">Create Flat</a>
                     </li>
-
         </li>
     </ul>
     </div>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
+            <i class="icon-bar-graph menu-icon"></i>
+            <span class="menu-title">Bill</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="charts">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('billForm') }}">Submit Bill</a></li>
+            </ul>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
+            <i class="icon-head menu-icon"></i>
+            <span class="menu-title">Users</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="auth">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('logout') }}"> Logout </a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('register') }}"> Register </a></li>
+            </ul>
+        </div>
+    </li>
+
     {{-- <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#form-elements" aria-expanded="false"
             aria-controls="form-elements">
@@ -232,18 +258,6 @@
             <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="pages/forms/basic_elements.html">Basic Elements</a>
                 </li>
-            </ul>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#charts" aria-expanded="false" aria-controls="charts">
-            <i class="icon-bar-graph menu-icon"></i>
-            <span class="menu-title">Charts</span>
-            <i class="menu-arrow"></i>
-        </a>
-        <div class="collapse" id="charts">
-            <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="pages/charts/chartjs.html">ChartJs</a></li>
             </ul>
         </div>
     </li>
@@ -270,7 +284,7 @@
                 <li class="nav-item"> <a class="nav-link" href="pages/icons/mdi.html">Mdi icons</a></li>
             </ul>
         </div>
-    </li> --}}
+    </li>
     <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
             <i class="icon-head menu-icon"></i>
@@ -284,7 +298,7 @@
             </ul>
         </div>
     </li>
-    {{-- <li class="nav-item">
+    <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#error" aria-expanded="false" aria-controls="error">
             <i class="icon-ban menu-icon"></i>
             <span class="menu-title">Error pages</span>

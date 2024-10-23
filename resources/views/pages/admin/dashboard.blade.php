@@ -2,6 +2,7 @@
 
 @section('content')
 <div class="main-panel">
+    @include('partials.messages');
     <div class="content-wrapper">
         <div class="row">
             <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
@@ -127,7 +128,7 @@
     new Chart(document.getElementById("pie-chart-due"), {
     type: 'pie',
     data: {
-      labels: ["Zone 1", "Zone 2", "Zone 3", "Zone 4", "Zone 5", "Zone 6"],
+      labels: ["Zone 1 %", "Zone 2 ", "Zone 3", "Zone 4", "Zone 5", "Zone 6"],
       datasets: [{
         label: "COLLECTED",
         backgroundColor: ["#3e95cd", "#8e5ea2","#3cba9f","#e8c3b9","#c45850","#283763"],
@@ -137,7 +138,7 @@
     options: {
       title: {
         display: true,
-        text: 'Bill Collected Based on Zones of Gulshan Socity'
+        text: 'Due Bills Based on Zones of Gulshan Socity'
       }
     }
 });

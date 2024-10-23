@@ -9,12 +9,13 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BillController;
+// use Illuminate\Container\Attributes\Auth;
 
 Route::get('/error-404', function () {
     return view('pages.404');
 })->name('errorPage');
 
-Route::get('/', [AuthenticatedSessionController::class, 'create'])->name('login');
+Route::get('/', [AuthenticatedSessionController::class, 'create'])->middleware('guest')->name('login');
 
 Route::get('/home', function () {
     return view('home');
@@ -52,6 +53,6 @@ Route::middleware(['auth'])->group(function () {
     });
 });
 
-Route::get('bill', [BillController::class, 'showBillingForm']);
+Route::get('bill', [BillController::class, 'showBillingForm'])->name('billForm');
 
 require __DIR__ . '/auth.php';

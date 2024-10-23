@@ -27,24 +27,58 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    // public function store(Request $request): RedirectResponse
+    // {
+    //     $request->validate([
+    //         'name' => ['required', 'string', 'max:255'],
+    //         'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
+    //         'password' => ['required', 'confirmed', Rules\Password::defaults()],
+    //     ]);
+
+    //     $user = User::create([
+    //         'name' => $request->name,
+    //         'email' => $request->email,
+    //         'password' => Hash::make($request->password),
+    //     ]);
+
+    //     event(new Registered($user));
+
+    //     Auth::login($user);
+
+    //     return redirect(route('home', absolute: false));
+    // }
+
+    public function store(Request $request)
     {
         $request->validate([
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
+            'address' => ['required', 'string'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:' . User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'user_type' => 'required|string|max:255',
+            'phone' => 'required|regex:/(01)[0-9]{9}/'
+        ], [
+            'name.required' => "Name must be filled up.",
+            'address.required' => "Address must be filled up.",
+            'phone.required' => "Phone must be filled up.",
+            'user_type.required' => "User Type must be filled up.",
+            'password.required' => "Password must be filled up.",
+            'email.required' => "Email field must be required."
         ]);
 
         $user = User::create([
             'name' => $request->name,
+            'user_type' => $request->user_type,
+            'phone' => $request->phone,
+            'address' => $request->address,
             'email' => $request->email,
             'password' => Hash::make($request->password),
         ]);
 
         event(new Registered($user));
 
-        Auth::login($user);
+        return redirect()->intended(route('admin.dashboard', absolute: false))->with('success', 'Building created successfully!');
 
-        return redirect(route('home', absolute: false));
+        // return redirect(RouteServiceProvider::HOME);
     }
 }
